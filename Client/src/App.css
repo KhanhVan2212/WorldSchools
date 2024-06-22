@@ -4382,16 +4382,7 @@ a {
   text-decoration: none;
   outline: 1;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  line-height: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-}
+
 .footer .inner-footer {
   border-top: 5px solid #e5e5e5;
   padding: 20px 0;
