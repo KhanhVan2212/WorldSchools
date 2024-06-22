@@ -5,7 +5,7 @@ const ProductList = () => {
     <div>
         <article className="item-news thumb-left item-news-common">
               <div className="thumb-art">
-                <a data-medium="Item-5" data-thumb={1} href="../hoc-sinh-fpt-afterschool-gianh-nhieu-giai-thuong-lap-trinh-quoc-te-4761050.html" className="thumb thumb-5x3" title="Học sinh FPT AfterSchool giành nhiều giải thưởng lập trình quốc tế" data-itm-source="#vn_source=Folder-GiaoDuc_TinTuc&vn_campaign=Stream&vn_medium=Item-5&vn_term=Desktop&vn_thumb=1" data-itm-added={1}>
+                <a data-medium="Item-5" data-thumb={1} href="/product" className="thumb thumb-5x3" title="Học sinh FPT AfterSchool giành nhiều giải thưởng lập trình quốc tế" data-itm-source="#vn_source=Folder-GiaoDuc_TinTuc&vn_campaign=Stream&vn_medium=Item-5&vn_term=Desktop&vn_thumb=1" data-itm-added={1}>
                   <picture>
                     {/*[if IE 9]><video style="display: none;"><![endif]*/}
                     <source data-srcset="https://i1-vnexpress.vnecdn.net/2024/06/21/nhlphcFAS-1718964167-5816-1718964233.jpg?w=300&h=180&q=100&dpr=1&fit=crop&s=YLP0iMYd38cX2rAAh5v6qw 1x, https://i1-vnexpress.vnecdn.net/2024/06/21/nhlphcFAS-1718964167-5816-1718964233.jpg?w=300&h=180&q=100&dpr=2&fit=crop&s=pOfQkjzbAoQBxQIkC5Ufjg 2x" srcSet="
@@ -18,7 +18,7 @@ const ProductList = () => {
                 </a>
               </div>
               <h2 className="title-news">
-                <a data-medium="Item-5" data-thumb={1} href="../hoc-sinh-fpt-afterschool-gianh-nhieu-giai-thuong-lap-trinh-quoc-te-4761050.html" title="Học sinh FPT AfterSchool giành nhiều giải thưởng lập trình quốc tế" data-itm-source="#vn_source=Folder-GiaoDuc_TinTuc&vn_campaign=Stream&vn_medium=Item-5&vn_term=Desktop&vn_thumb=1" data-itm-added={1}>
+                <a data-medium="Item-5" data-thumb={1} href="/product" title="Học sinh FPT AfterSchool giành nhiều giải thưởng lập trình quốc tế" data-itm-source="#vn_source=Folder-GiaoDuc_TinTuc&vn_campaign=Stream&vn_medium=Item-5&vn_term=Desktop&vn_thumb=1" data-itm-added={1}>
                   Học sinh FPT AfterSchool giành nhiều giải thưởng lập trình
                   quốc tế
                 </a>

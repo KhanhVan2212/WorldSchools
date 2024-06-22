@@ -2,9 +2,12 @@ import React from 'react'
 
 const Navbar = () => {
   return (
+    
    <div>
   <div id="_ads_bg_top" className="lazier" />
-  <section id="supper_masthead" className="section section-ads-top banner-ads banner-top-home" />
+  <section id="supper_masthead" className="section section-ads-top banner-ads banner-top-home">
+   <img className='ImageBanner' src="https://the-centric.masterisehomes.com/wp-content/uploads/2024/05/GSA_08.jpg" alt="" />
+  </section>
   <header className="section top-header" data-campaign="Header">
     <div className="container">
       <a href="javascript:;" className="all-menu all-menu-tablet"><span className="hamburger" /></a>
