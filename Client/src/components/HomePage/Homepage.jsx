@@ -1,10 +1,13 @@
 import React from 'react'
 import ProductList from '../ProductList/ProductList'
 import Colright from '../Col-right/Col-right'
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 
 const Homepage = () => {
   return (
     <div>
+      <Navbar />
     <section className="section top-header top-header-folder">
       <div className="container" data-campaign="Header">
         <nav className="width_common flexbox nav-folder">
@@ -123,6 +126,7 @@ const Homepage = () => {
         </div>
       </div>
     </section>
+    <Footer />
   </div>
   )
 }
