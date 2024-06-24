@@ -7,6 +7,7 @@ const SingerProduct = () => {
   return (
     <div>
       <Navbar />
+      <div className=" w-[66%] m-auto">
       <div id="_ads_bg_top" className="lazier" />
       <section className="section" />
       {/*end header*/}
@@ -399,6 +400,7 @@ const SingerProduct = () => {
             </a>
           </div>
         </div>
+      </div>
       </div>
       <Footer />
     </div>

@@ -6,10 +6,10 @@ import Footer from "../Footer/Footer";
 
 const Homepage = () => {
   return (
-    <div>
+    <div className='m-auto'>
       <Navbar />
     <section className="section top-header top-header-folder">
-      <div className="container" data-campaign="Header">
+      <div className="container w-[68%]" data-campaign="Header">
         <nav className="width_common flexbox nav-folder">
           <div className="title-folder">
             <h1>
@@ -43,11 +43,14 @@ const Homepage = () => {
       </div>
     </section>
     <section className="section section_container mt15" data-campaign="Stream">
-      <div className="container flexbox">
+      <div className="container flexbox w-[68%] m-auto">
         <div className="col-left col-left-new col-left-subfolder" id="automation_TV0">
           <div className="wrapper-topstory-folder wrapper-topstory-subfolder flexbox width_common wrapper-topstory-folder-v2">
-            <article className="item-news full-thumb article-topstory">
-              <div className="thumb-art">
+            <article className="item-news grid grid-cols-1 p-4 rounded full-thumb article-topstory">
+              <div>
+                <img src="https://i1-vnexpress.vnecdn.net/2024/06/21/z55606208130099605b019c5ec43b6-6799-5307-1718964662.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=Pm9_3FCWIhDhKzFuuws2kA" alt="Cả lớp trúng tuyển sớm Đại học Ngoại thương, Kinh tế TP HCM" />
+              </div>
+              {/* <div className="thumb-art">
                 <a data-medium="Item-1" data-thumb={1} href="/product" className="thumb thumb-5x3" title="Cả lớp trúng tuyển sớm Đại học Ngoại thương, Kinh tế TP HCM" data-itm-source="#vn_source=Folder-GiaoDuc_TinTuc&vn_campaign=Stream&vn_medium=Item-1&vn_term=Desktop&vn_thumb=1" data-itm-added={1}>
                   <picture>
                     <source srcSet="
@@ -57,7 +60,7 @@ const Homepage = () => {
                     <img itemProp="contentUrl" style={{transform: 'translateX(-50%)', left: '50%'}} loading="lazy" intrinsicsize="680x0" alt="Cả lớp trúng tuyển sớm Đại học Ngoại thương, Kinh tế TP HCM" className="lazy loading" src="../../i1-vnexpress.vnecdn.net/2024/06/21/z55606208130099605b019c5ec43b6-6799-5307-17189646621b3a.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=Pm9_3FCWIhDhKzFuuws2kA" data-ll-status="loading" />
                   </picture>
                 </a>
-              </div>
+              </div> */}
               <h2 className="title-news">
                 <a data-medium="Item-1" data-thumb={1} href="/product" title="Cả lớp trúng tuyển sớm Đại học Ngoại thương, Kinh tế TP HCM" data-itm-source="#vn_source=Folder-GiaoDuc_TinTuc&vn_campaign=Stream&vn_medium=Item-1&vn_term=Desktop&vn_thumb=1" data-itm-added={1}>
                   Cả lớp trúng tuyển sớm Đại học Ngoại thương, Kinh tế TP HCM
@@ -100,7 +103,7 @@ const Homepage = () => {
       </div>
     </section>
     <section className="section section_container">
-      <div className="container wrap-box-business">
+      <div className=" container wrap-box-business">
         <div className="width_common inner-box-business">
           <div className="box-category box-shop-sell box-sponsor-noslide close_not_qc bottom_sponsor">
             <ins className="adsbyeclick" data-zone={6277} data-ad-width={1} data-ad-height={1} data-pos="Bottom_sponsor" data-lazy="done" data-adsbyeclick="done" style={{display: 'none'}}><ins id="eclick_ads_frame5_ins" style={{display: 'block', border: 'none', height: 'auto', margin: '0 auto', padding: 0, position: 'relative', visibility: 'visible', width: '100%', backgroundColor: 'transparent'}}><div id="eclick_ads_frame5_div"><div id="eclick_ads_frame5_wrap" className="ad_wrapper_protection"><iframe width={1} height={1} frameBorder={0} marginWidth={0} marginHeight={0} vspace={0} hspace={0} allowTransparency="true" scrolling="no" allowFullScreen="true" id="eclick_ads_frame5" className="ad_frame_protection" ad_oninit ad_slider style={{position: 'absolute', left: 0, top: 0}} /></div></div></ins></ins>
