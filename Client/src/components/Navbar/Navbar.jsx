@@ -16,7 +16,7 @@ const Navbar = () => {
         />
       </section>
       <header className="section top-header " data-campaign="Header">
-        <div className="container flex items-center justify-center">
+        <div className="container w-[68%] flex items-center justify-center">
           <a href="javascript:;" className="all-menu all-menu-tablet">
             <span className="hamburger" />
           </a>

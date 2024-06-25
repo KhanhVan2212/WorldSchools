@@ -1,13 +1,13 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from 'react'
+import { NavLink } from 'react-router-dom'
 
-const UserList = () => {
+const CategoryList = () => {
   return (
     <div>
       <div className="flex mt-3 justify-between">
-        <h1 className=" font-semibold text-2xl">Manager User</h1>
-        <NavLink className="px-4 py-2 border rounded text-white bg-blue-600 border-solid hover:bg-blue-700" to={"/admin/product/createproduct"}>
-          <strong >+ Add User</strong>
+        <h1 className=" font-semibold text-2xl">List Category</h1>
+        <NavLink className="px-4 py-2 border rounded text-white bg-blue-600 border-solid hover:bg-blue-700" to={"/admin/product/createcategory"}>
+          <strong >+ Add Category</strong>
         </NavLink>
       </div>
       <div className="overflow-x-auto mt-3">
@@ -15,10 +15,10 @@ const UserList = () => {
           <thead className="ltr:text-left rtl:text-right">
             <tr>
               <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                Name
+                STT
               </th>
               <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                Date of Birth
+                Name
               </th>
               <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                 Role
@@ -78,7 +78,7 @@ const UserList = () => {
         </table>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default UserList;
+export default CategoryList

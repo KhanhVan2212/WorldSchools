@@ -1,9 +1,15 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const AdminProducts = () => {
   return (
     <div>
-      <h1 className="mt-3 font-semibold text-2xl">List Product</h1>
+      <div className="flex mt-3 justify-between">
+        <h1 className=" font-semibold text-2xl">List Product</h1>
+        <NavLink className="px-4 py-2 border rounded text-white bg-blue-600 border-solid hover:bg-blue-700" to={"/admin/product/createproduct"}>
+          <strong >+ Add Product</strong>
+        </NavLink>
+      </div>
       <div className="overflow-x-auto mt-3">
         <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
           <thead className="ltr:text-left rtl:text-right">

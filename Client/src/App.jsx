@@ -6,9 +6,10 @@ import RegisterUser from "./components/RegisterUser/RegisterUser";
 import LoginUser from "./components/LoginUser/LoginUser";
 import DashBoard from "./pages/DashBoard/DashBoard";
 import Charts from "./components/Admin/Charts/Charts";
-import AdminProducts from "./components/Admin/AdminProduct/AdminProducts";
-import CreateProduct from "./components/Admin/CreateProduct/CreateProduct";
+import ProductsList from "./components/Admin/AdminProduct/ProductsList";
+import CreateProduct from "./components/Admin/AdminProduct/CreateProduct";
 import UserList from "./components/Admin/User/UserList";
+import CategoryList from "./components/Admin/Category/CategoryList";
 
 
 function App() {
@@ -22,9 +23,10 @@ function App() {
           <Route path="/login" element={<LoginUser />} />
           <Route path="/admin" element={<DashBoard />}>
             <Route path="dashboard" element={<Charts />} />
-            <Route path="product" element={<AdminProducts />} />
+            <Route path="product" element={<ProductsList />} />
             <Route path="product/createproduct" element={<CreateProduct />} />
             <Route path="user" element={<UserList />} />
+            <Route path="category" element={<CategoryList />} />
           </Route>
         </Routes>
       </BrowserRouter>
