@@ -2119,10 +2119,11 @@ figure {
   width: 260px;
   float: left;
   margin-right: 20px;
+  padding-bottom: 20px;
 }
 .item-news.full-thumb .thumb-art {
   width: 100%;
-  margin: 0 0 10px 0;
+  margin: 0px 0 10px 0px;
 }
 .item-news.small-thumb .thumb-art {
   width: 110px;

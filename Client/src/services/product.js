@@ -1,15 +1,5 @@
+import axios from "axios";
 import { instance } from "../config/axios";
-
-const userDataString = localStorage.getItem('user');
-let token = '';
-if (userDataString) {
-    try {
-        const userData = JSON.parse(userDataString);
-        token = userData.token || '';
-    } catch (error) {
-        console.error('Không thể phân tích dữ liệu từ localStorage:', error);
-    }
-}
 
 export const getAllProducts = async (params) => {
   try {
@@ -29,12 +19,7 @@ export const getProductById = async (id) => {
 }
 export const ProductCreate = async (product) => {
   try {
-    const response = await instance.post(`/products`, product, {
-      headers: {
-          'Content-Type': 'application/json',
-          "Authorization": "Bearer " + token ? token : ''
-      },
-  })
+    const response = await axios.post("http://localhost:8080/products", product)
     alert("Product Add successfully");
     return response.data;
     

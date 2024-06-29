@@ -15,9 +15,8 @@ const useProductMutation = ({ action }) => {
       switch (action) {
         case "CREATE":
           return await ProductCreate(product);
-          
         case "DELETE":
-          return await ProductDelete(product.id);
+          return await ProductDelete(product._id);
         case "UPDATE":
           return await ProductUpdate(product);
         default:

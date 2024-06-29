@@ -3,15 +3,20 @@ import "./SingerProduct.css";
 import Colright from "../Col-right/Col-right";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+import { useParams } from "react-router-dom";
+import useProductQuery from "../../hooks/useProduct/useProductQuery";
 const SingerProduct = () => {
+  const {id} = useParams();
+  const {data , isLoading , isError} = useProductQuery(id);
+  console.log(data);
+  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Lỗi rồi</div>;
   return (
     <div>
       <Navbar />
       <div className=" w-[66%] m-auto">
       <div id="_ads_bg_top" className="lazier" />
       <section className="section" />
-      {/*end header*/}
-      {/*main_menu menu PC*/}
       <section
         className="section center"
         id="sync_bgu_and_masthead"
@@ -19,7 +24,6 @@ const SingerProduct = () => {
       >
         <div id="sis_bgu"></div>
       </section>
-      {/* CONTENT  */}
       <section
         className="section page-detail top-detail"
         data-component-config='{"type":"text","article_id":4760030}'
@@ -62,162 +66,21 @@ const SingerProduct = () => {
               <span className="date">Thứ năm, 20/6/2024, 05:33 (GMT+7)</span>
             </div>
             <h1 className="title-detail">
-              Điểm chuẩn lớp 10 ở TP HCM có thể giảm tới 2 điểm
+             {data.title}
             </h1>
             {/* show vote button*/}
             {/* end show vote button*/}
             <p className="description">
-              Điểm Toán thấp nên chuẩn đầu vào lớp 10 có thể giảm tới 2 điểm,
-              riêng các trường top đầu giảm nhẹ 0,5-1, theo dự đoán của nhiều
-              giáo viên.
+              {data.poster}
             </p>
             <article className="fck_detail">
-              <p className="Normal">
-                Nhận định được đưa ra sau khi Sở Giáo dục và Đào tạo TP HCM công
-                bố điểm thi lớp 10 của hơn 98.000 thí sinh.
+            <p className="Normal">
+               <img src={data.image} width={1000} alt="" />
               </p>
               <p className="Normal">
-                Với công thức tính điểm xét tuyển là tổng ba môn Toán, Văn, Anh,
-                mức nhiều thí sinh đạt được nhất là 17,75 điểm (hơn 1.900 em,
-                chiếm 2%), cao hơn năm ngoái 1,5 điểm.
+               {data.description}
               </p>
-              <p className="Normal">
-                Số thí sinh đạt mức điểm trung bình - khá tăng. Trong đó, nhóm
-                đạt 11-15 điểm có 24.680 em, chiếm khoảng 25%, cao hơn năm ngoái
-                2.100. Nhóm 15,25-21,75 điểm có hơn 48.800 thí sinh, cũng tăng
-                6.000.
-              </p>
-              <p className="Normal">
-                Ngược lại, số học sinh đạt 23 điểm trở lên - mức chuẩn của 10
-                trường top đầu năm ngoái, lại giảm. Nhóm này có hơn 12.000 em
-                (12%), ít hơn năm ngoái 5.400.
-              </p>
-              <div data-widget="obj" style={{ width: "100%" }}>
-                <div
-                  id="chart-8950"
-                  data-component="true"
-                  data-component-type="chart"
-                  data-component-value={8950}
-                />
-              </div>
-              <p className="Normal">
-                Với phổ điểm từng môn, thầy Lâm Vũ Công Chính, giáo viên Toán,
-                trường THPT Nguyễn Du, cho hay trong khi điểm Văn, Tiếng Anh gần
-                như tương tự so với năm ngoái thì môn Toán thấp hơn hẳn. Tỷ lệ
-                học sinh đạt dưới điểm trung bình môn này là 56%, tăng 10%. Số
-                em đạt điểm giỏi (từ 8 trở lên) chỉ gần bằng 1/3 của năm ngoái.
-              </p>
-              <p className="Normal">
-                Từ các yếu tố trên, thầy Chính cho rằng điểm chuẩn lớp 10 có thể
-                giảm khoảng 0,5-2 điểm.
-              </p>
-              <p className="Normal">
-                "Đầu vào của các trường top đầu giảm 0,5-1,5 điểm, những trường
-                còn lại biến động trong khoảng 1-2 điểm", thầy Chính dự đoán.
-              </p>
-              <p className="Normal">
-                Thầy Huỳnh Thanh Phú, Hiệu trưởng trường THPT Bùi Thị Xuân, nhận
-                định tương tự.
-              </p>
-              <p className="Normal">
-                "Tổng quan điểm số năm nay thấp, các trường top đầu sẽ giảm
-                0,5-1 điểm, trường top giữa giảm 1-2 điểm. Thí sinh sẽ cạnh
-                tranh nhiều ở môn Toán", ông Phú nói.
-              </p>
-              <p className="Normal">
-                Một hiệu trưởng khác cho rằng các trường trong khu vực nội thành
-                nhiều khả năng giữ nguyên điểm chuẩn, hoặc giảm nhẹ 0,5-1 điểm.
-                Riêng một số trường tốp đầu có chỉ tiểu tuyển sinh giảm thì đầu
-                vào có thể tăng 0,5. Với khu vực ngoại thành, mức điểm trúng
-                tuyển có thể giảm 1-2.
-              </p>
-              <p className="Normal">
-                "Dù vậy sẽ khó có mức điểm chuẩn dưới 10, thấp nhất từ 11 điểm
-                trở lên", ông này nhận định.
-              </p>
-              <p className="Normal">
-                Sở Giáo dục và Đào tạo nhận đơn phúc khảo từ 21 đến 24/6. Thầy
-                Phú khuyên thí sinh và phụ huynh cân nhắc việc này nếu thấy điểm
-                thi chênh lệch nhiều với dự tính.
-              </p>
-              <p className="Normal">
-                "Những em có kết quả không cao cũng đừng vội thất vọng, vẫn có
-                khả năng được tuyển bổ sung nếu các trường tuyển không đủ chỉ
-                tiêu", ông nói.
-              </p>
-              <p className="Normal" style={{ textAlign: "center" }}>
-                <a
-                  href="tp-hcm-cong-bo-diem-chuan-lop-10-cong-lap-nam-2023-4626275.html"
-                  rel="dofollow"
-                >
-                  Điểm chuẩn lớp 10 của TP HCM năm 2023
-                </a>
-              </p>
-              <figure
-                data-size="true"
-                itemProp="associatedMedia image"
-                itemScope
-                itemType="http://schema.org/ImageObject"
-                className="tplCaption"
-              >
-                <meta
-                  itemProp="url"
-                  content="../i1-vnexpress.vnecdn.net/2024/06/19/cc28674b9a0f3951601e-171879757-3783-6738-17187977832a29.jpg?w=0&h=0&q=100&dpr=2&fit=crop&s=JXfiKz86tu7k7_qlYaT2ig"
-                />
-                <meta itemProp="width" content={2399} />
-                <meta itemProp="height" content={1598} />
-                <meta itemProp="href" content />
-                <div
-                  className="fig-picture"
-                  style={{
-                    paddingBottom: "66.603235014272%",
-                    position: "relative",
-                  }}
-                >
-                  <picture>
-                    {/*[if IE 9]><video style="display: none;"><![endif]*/}
-                    <source data-srcset="https://i1-vnexpress.vnecdn.net/2024/06/19/cc28674b9a0f3951601e-171879757-3783-6738-1718797783.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=ztdhnchmlaXVjMHNS33iiA 1x, https://i1-vnexpress.vnecdn.net/2024/06/19/cc28674b9a0f3951601e-171879757-3783-6738-1718797783.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=7DA_UcebHrNPhTGuWvz4mQ 1.5x, https://i1-vnexpress.vnecdn.net/2024/06/19/cc28674b9a0f3951601e-171879757-3783-6738-1718797783.jpg?w=680&h=0&q=100&dpr=2&fit=crop&s=mt8hYN24pRmNtG6tMV8-7A 2x" />
-                    {/*[if IE 9]></video><![endif]*/}
-                    <img
-                      itemProp="contentUrl"
-                      style={{ position: "absolute", width: "100%", left: 0 }}
-                      loading="lazy"
-                      intrinsicsize="680x0"
-                      alt="Thí sinh dự thi vào lớp 10 tại TP HCM, ngày 6/6. Ảnh: Quỳnh Trần"
-                      className="lazy"
-                      src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                      data-src="../i1-vnexpress.vnecdn.net/2024/06/19/cc28674b9a0f3951601e-171879757-3783-6738-17187977836316.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=ztdhnchmlaXVjMHNS33iiA"
-                    />
-                  </picture>
-                </div>
-                <figcaption itemProp="description">
-                  <p className="Image">
-                    Thí sinh thi lớp 10 tại TP HCM, ngày 6/6. Ảnh:
-                    <em>Quỳnh Trần </em>
-                  </p>
-                </figcaption>
-              </figure>
-              <p className="Normal">
-                Năm ngoái, những trường lấy điểm chuẩn thấp nhất là THPT Đa
-                Phước, Bình Khánh, Cần Thạnh, An Nghĩa, THCS&amp;THPT Thạnh An
-                với 10,5 điểm, tức trung bình 3,5 điểm một môn.
-              </p>
-              <p className="Normal">
-                Ngược lại, THPT Nguyễn Thượng Hiền lấy đầu vào cao nhất, thí
-                sinh đạt trung bình 8,5 điểm một môn mới đỗ. Các trường trong
-                top 10 như Gia Định, Nguyễn Thị Minh Khai, Nguyễn Hữu Huân, Bùi
-                Thị Xuân... đều lấy từ 23 điểm trở lên.
-              </p>
-              <p className="Normal">
-                Điểm chuẩn lớp 10 hệ đại trà năm nay được Sở Giáo dục và Đào tạo
-                công bố vào ngày 10/7.
-              </p>
-              <div
-                data-component="true"
-                data-component-type="tin_xemthem"
-                data-component-value="4759901,4759998"
-                data-thumb={1}
-              />
+              
               <p className="Normal" style={{ textAlign: "right" }}>
                 <strong>Lệ Nguyễn - Doãn Hùng</strong>
               </p>
