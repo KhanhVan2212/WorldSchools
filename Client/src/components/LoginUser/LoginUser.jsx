@@ -14,6 +14,8 @@ const RegisterPage = () => {
   const onSubmit = async (user) => {
     try {
       const { data } = await axios.post("http://localhost:8080/auth/signin", user);
+      const token = data.token
+      localStorage.setItem("token", JSON.stringify(token))
       console.log(data);
       localStorage.setItem("user", JSON.stringify(data));
       alert("Đăng nhập thành công");
