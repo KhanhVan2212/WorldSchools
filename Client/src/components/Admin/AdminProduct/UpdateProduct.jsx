@@ -16,6 +16,7 @@ const UpdateProduct = () => {
         return  await getProductById(id) 
     }
     })
+    console.log(data);
     const {mutate} = useMutation({
       mutationFn: async(product) => {
        const form =  await ProductUpdate(product);
