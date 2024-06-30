@@ -20,13 +20,7 @@ const AdminProducts = () => {
       product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       product.poster.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
-  useEffect(() => {
-    if(!searchTerm) {
-      if (isLoading) return <div>Loading...</div>
-    }
-  }, [searchTerm]);
-
+  
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Lỗi rồi</div>;
   return (
