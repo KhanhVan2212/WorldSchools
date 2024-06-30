@@ -1,15 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 import useProductQuery from '../../hooks/useProduct/useProductQuery';
 import { Link } from 'react-router-dom';
 
 const ProductList = () => {
   const {data , isLoading , isError} = useProductQuery();
   console.log(data);
+
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredProducts = data?.filter(
+    (product) =>
+      product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.poster.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Lỗi rồi</div>;
   return (
     <div>
-      {data?.map((product,index)=>{
+      <div>
+        <input
+          id="search"
+          type="text"
+          value={searchTerm}
+          onChange={handleSearch}
+          placeholder="Search products..."
+          className="mt-3 block rounded-md border border-gray-200 px-2 py-2 shadow-sm outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+        />
+      </div>
+      {filteredProducts?.map((product,index)=>{
         return(
           
         <>
