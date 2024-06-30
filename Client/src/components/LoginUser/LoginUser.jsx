@@ -15,6 +15,7 @@ const RegisterPage = () => {
     try {
       const { data } = await axios.post("http://localhost:8080/auth/signin", user);
       console.log(data);
+      localStorage.setItem("user", JSON.stringify(data));
       alert("Đăng nhập thành công");
       navigate("/");
     } catch (error) {

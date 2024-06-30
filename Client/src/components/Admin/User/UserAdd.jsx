@@ -15,7 +15,7 @@ const UserAdd = () => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: ["PRODUCT_KEY"],
+        queryKey: ["USER_KEY"],
       });
     },
     onError: (error) => {

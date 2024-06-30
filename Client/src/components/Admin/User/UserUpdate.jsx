@@ -81,6 +81,14 @@ const UserUpdatee = () => {
                       className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                     />
                   </div>
+                  <div className="md:col-span-5">
+                    <label htmlFor="email">Role</label>
+                    <input
+                      type="text"
+                      {...register("role")}
+                      className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                    />
+                  </div>
                   <div className="md:col-span-5 text-right">
                     <div className="inline-flex items-end">
                       <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">

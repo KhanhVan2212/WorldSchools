@@ -15,6 +15,7 @@ import UserAdd from "./components/Admin/User/UserAdd";
 import UserUpdatee from "./components/Admin/User/UserUpdate";
 import CreateCategory from "./components/Admin/Category/CreateCategory";
 import UpdateCategoryy from "./components/Admin/Category/UpdateCategoryy";
+import ProtectedRoutes from "./hooks/ProtectedRoutes";
 
 
 function App() {
