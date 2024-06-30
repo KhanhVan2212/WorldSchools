@@ -27,7 +27,7 @@ function App() {
           <Route path="/detail/:id" element={<SingerProduct />} />
           <Route path="/register" element={<RegisterUser />} />
           <Route path="/login" element={<LoginUser />} />
-          <Route path="/admin" element={<DashBoard />}>
+          <Route path="/admin" element={<ProtectedRoutes><DashBoard /></ProtectedRoutes>}>
             <Route path="dashboard" element={<Charts />} />
             <Route path="products" element={<ProductsList />} />
             <Route path="product/add" element={<CreateProduct />} />
