@@ -1,12 +1,21 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import useUserQuery from "../../../hooks/useUser/useUserQuery";
+import useUserMutation from "../../../hooks/useUser/useUserMutation";
 
 const UserList = () => {
+  const {data , isLoading , isError} = useUserQuery();
+  console.log(data);
+  const { mutate } = useUserMutation({
+    action: "DELETE",
+});
+if (isLoading) return <div>Loading...</div>;
+if (isError) return <div>Lỗi rồi</div>;
   return (
     <div>
       <div className="flex mt-3 justify-between">
         <h1 className=" font-semibold text-2xl">Manager User</h1>
-        <NavLink className="px-4 py-2 border rounded text-white bg-blue-600 border-solid hover:bg-blue-700" to={"/admin/product/createproduct"}>
+        <NavLink className="px-4 py-2 border rounded text-white bg-blue-600 border-solid hover:bg-blue-700" to={"/admin/users/add"}>
           <strong >+ Add User</strong>
         </NavLink>
       </div>
@@ -18,62 +27,66 @@ const UserList = () => {
                 Name
               </th>
               <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                Date of Birth
+                Email
+              </th>
+              <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                Password
               </th>
               <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                 Role
               </th>
               <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                Salary
+                Action
               </th>
             </tr>
           </thead>
 
           <tbody className="divide-y divide-gray-200">
-            <tr>
+            {data?.map((product,index)=>{
+              return(
+                <tr key={index}>
               <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                John Doe
+                {product?.name}
               </td>
               <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                24/05/1995
+                {product?.email}
               </td>
               <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                Web Developer
+                {product.password}
               </td>
               <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                $120,000
+                {product.role}
+              </td>
+              <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+              <Link
+                    to={`/admin/users/update/${product._id}`}
+                    
+                   
+                  >
+                    <button  type="button"
+                    className="mr-3 text-[15px] bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded 
+                   focus:outline-none focus:shadow-outline">
+                    {" "}
+                    Edit{" "}
+                    </button>
+                  </Link>
+                  
+                  <button
+                    type="button"
+                    className="btn_delete text-[15px] bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded 
+               focus:outline-none focus:shadow-outline"
+                    onClick={() =>{
+                     mutate(product)
+                    }
+                      }
+                        
+                  >
+                    Delete
+                  </button>
               </td>
             </tr>
-
-            <tr>
-              <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                Jane Doe
-              </td>
-              <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                04/11/1980
-              </td>
-              <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                Web Designer
-              </td>
-              <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                $100,000
-              </td>
-            </tr>
-
-            <tr>
-              <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                Gary Barlow
-              </td>
-              <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                24/05/1995
-              </td>
-              <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                Singer
-              </td>
-              <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                $20,000
-              </td>
-            </tr>
+              )
+            })}
           </tbody>
         </table>
       </div>

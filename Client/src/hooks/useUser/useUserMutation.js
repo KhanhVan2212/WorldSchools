@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { SubmitHandler, useForm } from "react-hook-form";
+import {  useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { UserCreate, UserDelete, UserUpdate } from "../../services/user";
 
@@ -16,7 +16,7 @@ const useUserMutation = ({ action }) => {
         case "CREATE":
           return await UserCreate(user);
         case "DELETE":
-            return await UserDelete(user.id);
+            return await UserDelete(user._id);
         case "UPDATE":
           return await UserUpdate(user);
         default:

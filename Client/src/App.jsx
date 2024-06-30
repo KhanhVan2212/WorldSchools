@@ -11,6 +11,10 @@ import CreateProduct from "./components/Admin/AdminProduct/CreateProduct";
 import UserList from "./components/Admin/User/UserList";
 import CategoryList from "./components/Admin/Category/CategoryList";
 import UpdateProduct from "./components/Admin/AdminProduct/UpdateProduct";
+import UserAdd from "./components/Admin/User/UserAdd";
+import UserUpdatee from "./components/Admin/User/UserUpdate";
+import CreateCategory from "./components/Admin/Category/CreateCategory";
+import UpdateCategoryy from "./components/Admin/Category/UpdateCategoryy";
 
 
 function App() {
@@ -27,8 +31,12 @@ function App() {
             <Route path="products" element={<ProductsList />} />
             <Route path="product/add" element={<CreateProduct />} />
             <Route path="product/update/:id" element={<UpdateProduct />} />
-            <Route path="user" element={<UserList />} />
+            <Route path="users" element={<UserList />} />
+            <Route path="users/add" element={<UserAdd />} />
+            <Route path="users/update/:id" element={<UserUpdatee />} />
             <Route path="category" element={<CategoryList />} />
+            <Route path="category/add" element={<CreateCategory />} />
+            <Route path="category/update/:id" element={<UpdateCategoryy />} />
           </Route>
         </Routes>
       </BrowserRouter>

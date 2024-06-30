@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { SubmitHandler, useForm } from "react-hook-form";
+import {  useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { CategoryAdd, CategoryDelete, CategoryUpdate } from "../../services/category";
 
@@ -16,7 +16,7 @@ const useCategoryMutation = ({ action }) => {
           return await CategoryAdd(category);
         case "DELETE":
           console.log(category.id);
-          return await CategoryDelete(category.id);
+          return await CategoryDelete(category._id);
         case "UPDATE":
           return await CategoryUpdate(category);
         default:
