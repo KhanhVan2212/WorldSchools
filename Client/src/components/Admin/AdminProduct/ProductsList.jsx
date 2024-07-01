@@ -5,12 +5,11 @@ import useProductMutation from "../../../hooks/useProduct/useProductMutation";
 
 const AdminProducts = () => {
   const { data, isLoading, isError } = useProductQuery();
-  console.log(data);
   const { mutate } = useProductMutation({
     action: "DELETE",
   });
   const [searchTerm, setSearchTerm] = useState("");
-
+  
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
@@ -55,6 +54,9 @@ const AdminProducts = () => {
                 Poster
               </th>
               <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                Category
+              </th>
+              <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                 Image
               </th>
               <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
@@ -76,6 +78,9 @@ const AdminProducts = () => {
                     </td>
                     <td className="whitespace-nowrap px-4 py-2 text-gray-700">
                       {product.poster}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                    {product.category}
                     </td>
                     <td className="whitespace-nowrap px-4 py-2 text-gray-700">
                       <img src={product.image} alt="" width={150} />

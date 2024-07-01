@@ -1,17 +1,28 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { ProductCreate } from "../../../services/product";
+import useCategoryQuery from "../../../hooks/useCategory/useCategoryQuery";
+import MDEditor from "@uiw/react-md-editor";
+import { uploadFile } from "../../../lib/utils";
 
 const CreateProduct = () => {
+  const [post, setPost] = useState("");
   const queryClient = useQueryClient();
-  const { register, handleSubmit } = useForm();
+  const { data } = useCategoryQuery();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const [gallery, setGallery] = useState([]);
+  const [image, setImage] = useState("");
   const navigate = useNavigate();
   const { mutate } = useMutation({
     mutationFn: async (product) => {
-      const data = await ProductCreate(product);
-      return data;
+      const form = await ProductCreate(product);
+      return form;
     },
     onSuccess: () => {
       queryClient.invalidateQueries({
@@ -23,9 +34,10 @@ const CreateProduct = () => {
     },
   });
   const onSubmit = async (product) => {
-    mutate(product);
+    mutate({ ...product, gallery, image, description: post });
     navigate("/admin/products");
   };
+
   return (
     <>
       <form
@@ -53,7 +65,6 @@ const CreateProduct = () => {
                           className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                         />
                       </div>
-
                       <div className="md:col-span-5">
                         <label htmlFor="email">Poster</label>
                         <input
@@ -63,22 +74,84 @@ const CreateProduct = () => {
                         />
                       </div>
                       <div className="md:col-span-5">
+                        <label htmlFor="email">GALLERY</label>
+                        <input
+                          type="file"
+                          multiple
+                          {...register("gallery", { required: true })}
+                          id="productGallery"
+                          className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-[15px]"
+                          onChange={async (e) => {
+                            const files = Array.from(e.target.files);
+
+                            const result = await Promise.all(
+                              files.map((file) => uploadFile(file))
+                            );
+
+                            setGallery(result.map((item) => item?.url));
+                          }}
+                        />
+                        <div>
+                          {gallery.map((item, index) => (
+                            <img
+                              key={index}
+                              src={item}
+                              alt={item}
+                              width={100}
+                              height={100}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                      <div className="md:col-span-5">
                         <label htmlFor="email">Image</label>
                         <input
-                          type="text"
-                          {...register("image")}
-                          className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                          type="file"
+                          {...register("image", { required: true })}
+                          id="productImage"
+                          className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-[15px]"
+                          onChange={async (e) => {
+                            const files = Array.from(e.target.files);
+                            const result = await Promise.all(
+                              files.map((file) => uploadFile(file))
+                            );
+
+                            console.log(result);
+                            setImage(result[0]?.url);
+                          }}
                         />
+                        <img src={image} alt={image} width={100} height={100} />
+                      </div>
+                      <div className="md:col-span-5">
+                        <label htmlFor="email">CATEGORY</label>
+                        <select id="cars" {...register("category")}>
+                          {data?.map((item, index) => (
+                            <option value={item._id} key={index}>
+                              {item.name}
+                            </option>
+                          ))}
+                        </select>
                       </div>
                       <div className="md:col-span-5">
                         <label htmlFor="email">Description</label>
                         <textarea
-                          type="text"
-                          {...register("description")}
+                          value={post}
+                          {...register("description", {
+                            onChange: (e) => setPost(e.target.value),
+                          })}
                           className="h-28 border mt-1 rounded px-4 w-full bg-gray-50"
                         />
                       </div>
-
+                      <div className="md:col-span-5" data-color-mode="light">
+                        <MDEditor
+                          value={post}
+                          onChange={(value) => setPost(value)}
+                        />
+                        <MDEditor.Markdown
+                          source={post}
+                          style={{ whiteSpace: "pre-wrap" }}
+                        />
+                      </div>
                       <div className="md:col-span-5 text-right">
                         <div className="inline-flex items-end">
                           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
