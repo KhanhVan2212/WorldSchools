@@ -72,7 +72,7 @@ const AdminProducts = ({ description }) => {
 
           <tbody className="divide-y divide-gray-200">
             {filteredProducts?.map((product, index) => {
-              const processedDescription = useDescription(product.description);
+              const processedDescription = useDescription(product?.description);
               return (
                 <>
                   <tr key={index}>
