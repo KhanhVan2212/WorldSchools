@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const RegisterPage = () => {
   const {
@@ -18,10 +19,10 @@ const RegisterPage = () => {
       localStorage.setItem("token", JSON.stringify(token))
       console.log(data);
       localStorage.setItem("user", JSON.stringify(data));
-      alert("Đăng nhập thành công");
-      navigate("/");
+      toast.success("Đăng nhập thành công!!");
+      navigate("/admin");
     } catch (error) {
-      alert("Tài khoản không chính xác");
+      toast.error("Tài khoản không chính xác");
     }
   };
   return (

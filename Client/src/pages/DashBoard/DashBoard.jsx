@@ -4,9 +4,9 @@ import { Outlet } from "react-router-dom";
 
 const DashBoard = () => {
   return (
-    <div className='flex justify-center'>
+    <div className='float-left relative'>
         <SlideBar />
-        <div className='ml-36 w-2/3'>
+        <div className='absolute top-0 left-72 w-[950px]'>
             <Outlet />
         </div>
     </div>

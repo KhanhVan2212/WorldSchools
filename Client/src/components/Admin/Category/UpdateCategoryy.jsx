@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { CategoryUpdate, getCategoryById } from "../../../services/category";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const UpdateCategoryy = () => {
   const { id } = useParams();
@@ -32,7 +33,7 @@ const UpdateCategoryy = () => {
       });
     },
     onError: (error) => {
-      console.error('Failed to add product:', error);
+      toast.error('Failed to add product:', error);
     },
   });
 

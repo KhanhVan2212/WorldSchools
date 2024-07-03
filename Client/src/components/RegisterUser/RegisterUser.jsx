@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const RegisterPage = () => {
   const {
@@ -15,10 +16,10 @@ const RegisterPage = () => {
     try {
       const { data } = await axios.post("http://localhost:8080/auth/signup", user);
       console.log(data);
-      alert("Đăng ký thành công");
+      toast.success("Đăng ký thành công");
       navigate("/login");
     } catch (error) {
-      alert("Tài khoản đã tồn tại");
+      toast.error("Tài khoản đã tồn tại");
     }
   };
   return (

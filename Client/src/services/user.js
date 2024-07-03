@@ -1,27 +1,27 @@
+import { toast } from "react-toastify";
 import { instance } from "../config/axios";
 
 export const getAllUsers = async (params) => {
   try {
-      const response = await instance.get('/users', { params })
-      return response.data
+    const response = await instance.get("/users", { params });
+    return response.data;
   } catch (error) {
-      return []
+    return [];
   }
-}
+};
 export const getUserById = async (id) => {
   try {
-      const response = await instance.get(`/users/${id}`)
-      return response.data
+    const response = await instance.get(`/users/${id}`);
+    return response.data;
   } catch (error) {
-      console.log(error)
+    console.log(error);
   }
-}
+};
 export const UserCreate = async (user) => {
   try {
     const response = await instance.post("/users", user);
-    alert("Add successfully");
+    toast.success("Add successfully");
     return response.data;
-    
   } catch (error) {
     console.log(error);
   }
@@ -40,10 +40,10 @@ export const UserDelete = async (id) => {
   try {
     if (confirm) {
       const response = await instance.delete(`/users/${id}`);
-      alert("Delete successfully");
+      toast.success("Delete successfully");
       return response.data;
     }
-  } catch (error) { 
+  } catch (error) {
     console.log(error);
   }
 };

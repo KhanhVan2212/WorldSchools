@@ -3,6 +3,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { CategoryAdd } from "../../../services/category";
+import { toast } from "react-toastify";
 
 const CreateCategory = () => {
   const queryClient = useQueryClient();
@@ -19,7 +20,7 @@ const CreateCategory = () => {
       });
     },
     onError: (error) => {
-      console.error('Failed to add product:', error);
+      toast.error('Failed to add product:', error);
    },
   });
   const onSubmit = async (product) => {

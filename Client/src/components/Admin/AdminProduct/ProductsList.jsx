@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import useProductQuery from "../../../hooks/useProduct/useProductQuery";
 import useProductMutation from "../../../hooks/useProduct/useProductMutation";
+import { useDescription } from "../../../hooks/useDescription/useDescription";
 
-const AdminProducts = () => {
+const AdminProducts = ({ description }) => {
+  const [searchTerm, setSearchTerm] = useState("");
   const { data, isLoading, isError } = useProductQuery();
+
   const { mutate } = useProductMutation({
     action: "DELETE",
   });
-  const [searchTerm, setSearchTerm] = useState("");
   
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
@@ -40,7 +42,7 @@ const AdminProducts = () => {
           value={searchTerm}
           onChange={handleSearch}
           placeholder="Search products..."
-          className="mt-3 block rounded-md border border-gray-200 px-2 py-2 shadow-sm outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+          className="mt-3 block rounded-md border border-gray-200 px-2 py-2 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
         />
       </div>
       <div className="overflow-x-auto mt-3">
@@ -70,29 +72,30 @@ const AdminProducts = () => {
 
           <tbody className="divide-y divide-gray-200">
             {filteredProducts?.map((product, index) => {
+              const processedDescription = useDescription(product.description);
               return (
                 <>
                   <tr key={index}>
-                    <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                    <td className="px-4 py-2 font-medium text-gray-900">
                       {product.title}
                     </td>
-                    <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                    <td className="px-4 py-2 text-gray-700">
                       {product.poster}
                     </td>
-                    <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                    {product.category}
+                    <td className="px-4 py-2 text-gray-700">
+                      {product.category}
                     </td>
-                    <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                      <img src={product.image} alt="" width={150} />
+                    <td className="px-4 py-2 text-gray-700">
+                      <img className="w-[110px] h-[50px]" src={product.image} alt="" width={150} />
                     </td>
-                    <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                      {product.description}
+                    <td className="px-4 py-2 text-gray-700">
+                      {processedDescription}
                     </td>
-                    <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                    <td className="px-4 py-2 text-gray-700">
                       <Link to={`/admin/product/update/${product._id}`}>
                         <button
                           type="button"
-                          className="mr-3 text-[15px] bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded 
+                          className="mr-3 text-[15px] bg-blue-500 hover:bg-blue-700 text-white py-1 px-[17px] rounded 
                    focus:outline-none focus:shadow-outline"
                         >
                           {" "}
@@ -117,6 +120,18 @@ const AdminProducts = () => {
             })}
           </tbody>
         </table>
+      </div>
+      <div className="flex justify-center">
+        <button 
+        className="text-white px-3 py-1.5 bg-blue-600 hover:bg-blue-700 rounded-md m-4"
+        type="button" >
+          Prev page
+        </button>
+        <button 
+        className="text-white px-3 py-1.5 bg-blue-600 hover:bg-blue-700 rounded-md my-4"
+        type="button">
+          Next page
+        </button>
       </div>
     </div>
   );
