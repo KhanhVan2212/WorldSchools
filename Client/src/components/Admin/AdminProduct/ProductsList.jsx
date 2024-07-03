@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import useProductQuery from "../../../hooks/useProduct/useProductQuery";
 import useProductMutation from "../../../hooks/useProduct/useProductMutation";
-import { useDescription } from "../../../hooks/useDescription/useDescription";
 
-const AdminProducts = ({ description }) => {
+const AdminProducts = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const { data, isLoading, isError } = useProductQuery();
 
@@ -72,7 +71,6 @@ const AdminProducts = ({ description }) => {
 
           <tbody className="divide-y divide-gray-200">
             {filteredProducts?.map((product, index) => {
-              const processedDescription = useDescription(product?.description);
               return (
                 <>
                   <tr key={index}>
@@ -89,7 +87,7 @@ const AdminProducts = ({ description }) => {
                       <img className="w-[110px] h-[50px]" src={product.image} alt="" width={150} />
                     </td>
                     <td className="px-4 py-2 text-gray-700">
-                      {processedDescription}
+                      {product.description}
                     </td>
                     <td className="px-4 py-2 text-gray-700">
                       <Link to={`/admin/product/update/${product._id}`}>

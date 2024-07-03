@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 
-export const useDescription = (description) => {
+const useDescription = (description) => {
   return useMemo(() => {
     if (!description) return "";
     return description.length > 100
@@ -8,3 +8,5 @@ export const useDescription = (description) => {
       : description;
   }, [description]);
 };
+
+export default useDescription;
