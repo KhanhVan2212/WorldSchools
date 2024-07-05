@@ -10,7 +10,7 @@ const AdminProducts = () => {
   const { mutate } = useProductMutation({
     action: "DELETE",
   });
-  
+
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
@@ -20,11 +20,30 @@ const AdminProducts = () => {
       product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       product.poster.toLowerCase().includes(searchTerm.toLowerCase())
   );
-  
+  function getCategoryName(category) {
+    switch (category) {
+      case "6687eaddca78d813ed821c98":
+        return "Tin tức";
+      case "6687eae2ca78d813ed821c9e":
+        return "Tuyển sinh";
+      case "6687eae8ca78d813ed821ca6":
+        return "Chân dung";
+      case "6687eaeeca78d813ed821cae":
+        return "Du học";
+      case "6680ea4ee3bc7aff81782c57":
+        return "Thảo luận";
+      case "6687eaf5ca78d813ed821cbc":
+        return "Học tiếng anh";
+      case "6687eafbca78d813ed821cc3":
+        return "Giáo dục 4.0";
+      default:
+        return "Đang cập nhật";
+    }
+  }
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Lỗi rồi</div>;
   return (
-    <div>
+    <div className="">
       <div className="flex mt-3 justify-between">
         <h1 className=" font-semibold text-2xl">List Product</h1>
         <NavLink
@@ -81,14 +100,15 @@ const AdminProducts = () => {
                       {product.poster}
                     </td>
                     <td className="px-4 py-2 text-gray-700">
-                      {product.category == "6680ea09e3bc7aff81782c33" ? "Thể thao": 
-                      product.category == "6680ea16e3bc7aff81782c39" ? "Giải trí": 
-                      product.category == "6680ea1ee3bc7aff81782c3f" ? "Xã hội": 
-                      product.category == "6680ea2ee3bc7aff81782c46" ? "Pháp luật": 
-                      product.category == "6680ea4ee3bc7aff81782c57" ? "Bóng đá": "Đang cập nhật"}
+                      {getCategoryName(product.category)}
                     </td>
                     <td className="px-4 py-2 text-gray-700">
-                      <img className="w-[110px] h-[50px]" src={product.image} alt="" width={150} />
+                      <img
+                        className="w-[110px] h-[50px]"
+                        src={product.image}
+                        alt=""
+                        width={150}
+                      />
                     </td>
                     <td className="px-4 py-2 text-gray-700">
                       {product.description}
@@ -124,14 +144,16 @@ const AdminProducts = () => {
         </table>
       </div>
       <div className="flex justify-center">
-        <button 
-        className="text-white px-3 py-1.5 bg-blue-600 hover:bg-blue-700 rounded-md m-4"
-        type="button" >
+        <button
+          className="text-white px-3 py-1.5 bg-blue-600 hover:bg-blue-700 rounded-md m-4"
+          type="button"
+        >
           Prev page
         </button>
-        <button 
-        className="text-white px-3 py-1.5 bg-blue-600 hover:bg-blue-700 rounded-md my-4"
-        type="button">
+        <button
+          className="text-white px-3 py-1.5 bg-blue-600 hover:bg-blue-700 rounded-md my-4"
+          type="button"
+        >
           Next page
         </button>
       </div>
