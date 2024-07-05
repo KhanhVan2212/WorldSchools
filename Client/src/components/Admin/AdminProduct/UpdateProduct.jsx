@@ -140,7 +140,7 @@ const UpdateProduct = () => {
                         <label htmlFor="email">CATEGORY</label>
                         <select id="cars" {...register("category")}>
                           {category?.map((item, index) => (
-                            <option value={item._id} key={index}>
+                            <option selected value={item._id} key={index}>
                               {item.name}
                             </option>
                           ))}

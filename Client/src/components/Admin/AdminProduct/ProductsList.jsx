@@ -81,7 +81,11 @@ const AdminProducts = () => {
                       {product.poster}
                     </td>
                     <td className="px-4 py-2 text-gray-700">
-                      {product.category}
+                      {product.category == "6680ea09e3bc7aff81782c33" ? "Thể thao": 
+                      product.category == "6680ea16e3bc7aff81782c39" ? "Giải trí": 
+                      product.category == "6680ea1ee3bc7aff81782c3f" ? "Xã hội": 
+                      product.category == "6680ea2ee3bc7aff81782c46" ? "Pháp luật": 
+                      product.category == "6680ea4ee3bc7aff81782c57" ? "Bóng đá": "Đang cập nhật"}
                     </td>
                     <td className="px-4 py-2 text-gray-700">
                       <img className="w-[110px] h-[50px]" src={product.image} alt="" width={150} />
