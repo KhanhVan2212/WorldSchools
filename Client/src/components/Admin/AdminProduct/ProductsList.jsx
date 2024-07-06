@@ -22,20 +22,20 @@ const AdminProducts = () => {
   );
   function getCategoryName(category) {
     switch (category) {
-      case "6687eaddca78d813ed821c98":
-        return "Tin tức";
-      case "6687eae2ca78d813ed821c9e":
-        return "Tuyển sinh";
-      case "6687eae8ca78d813ed821ca6":
-        return "Chân dung";
-      case "6687eaeeca78d813ed821cae":
-        return "Du học";
+      case "6680ea09e3bc7aff81782c33":
+        return "Thể thao";
+      case "6680ea16e3bc7aff81782c39":
+        return "Giải trí";
+      case "6680ea1ee3bc7aff81782c3f":
+        return "Xã hội";
+      case "6680ea2ee3bc7aff81782c46":
+        return "Pháp luật";
       case "6680ea4ee3bc7aff81782c57":
-        return "Thảo luận";
-      case "6687eaf5ca78d813ed821cbc":
-        return "Học tiếng anh";
-      case "6687eafbca78d813ed821cc3":
-        return "Giáo dục 4.0";
+        return "Bóng đá";
+      // case "6687eaf5ca78d813ed821cbc":
+      //   return "Học tiếng anh";
+      // case "6687eafbca78d813ed821cc3":
+      //   return "Giáo dục 4.0";
       default:
         return "Đang cập nhật";
     }

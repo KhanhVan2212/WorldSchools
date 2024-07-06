@@ -1,11 +1,13 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const SlideBar = () => {
   const navigate = useNavigate()
   const removeUser = () => {
     localStorage.removeItem("user")
     navigate("/")
+    toast.success("Đăng xuất thành công!!")
   }
   return (
     <div>
